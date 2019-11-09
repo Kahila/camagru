@@ -30,17 +30,9 @@ if (input::exists()) {
             ),
         ));
 
-
         if ($validation->passed()) {
         	$user = new User();
-
-
-        // echo $salt = Hash::salt(10);
-        // // echo $salt;
-        // die();
-
-        	 $salt = Hash::salt();
-                  
+        	$salt = Hash::salt(32);         
             try {
                 $user->create(array(
                     'username' => input::get('username'),
@@ -48,15 +40,14 @@ if (input::exists()) {
                     'salt' => $salt,
                     'name' => input::get('name'),
                     'joined' => date('Y-m-d H:i:s'),
-                    'group' => 1
+                    'grp' => 1,
+                    'email' => input::get('email')
                 ));
-
                 //echo "here.....";
                Session::flash('home', 'you have been registered. Have fun!');
                //header('location: index.php');
                // echo "here////";
                redirect::go_to('index.php');
-
             } catch (Exception $e) {
                 die($e->getMessage());
             }

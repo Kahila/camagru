@@ -12,7 +12,6 @@ class User{
 		if (!$user){
 			if(Session::exists($this->_sessionName)){
 				$user = Session::get($this->_sessionName);
-				echo $user;
 
 				if($this->find($user)){
 					$this->_isLoggedIn = true;
@@ -25,14 +24,30 @@ class User{
 		}
 	}
 
+	public function isLoggedIn(){
+		return $this->_isLoggedIn;
+	}
+
+	public function update($fields= array(), $id = null){
+		if (!$id && $this->isLoggedIn()){
+			$id = $this->data()->id;
+		}
+		if(!$this->_db->update('users', $id, $fields)){
+			//throw new Exception('unable to update please retry later.');
+		}
+	}
+
 	public function create($fields){
+		// print_r($fields);
 		if (!$this->_db->insert('users', $fields)){
 			throw new Exception('Account was not created.');
 		}
 	}
 
-	public function isLoggedIn(){
-		return $this->_isLoggedIn;
+	public function upload_image($fields = array()){
+		if (!$this->_db->insert('images', $fields)){
+			throw new Exception('failed to upload image.');
+		}
 	}
 
 	public function logout(){

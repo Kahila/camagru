@@ -29,24 +29,58 @@ require_once 'core/init.php';
 	}
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>camagru login</title>
+	<style type="text/css">
+		i{
+			color: red;
+			text-align: center;
+		}
+		img{
+			width: 20%;
 
-<form action="" method="post">
-	<div class="field">
-		<label for="username">Username</label><br>
-		<input type="text" name="username" autocomplete="off">
-	</div>
+		}
+		body{
+			//background-color: grey;
+			background-image: url("webimages/1920x1080 canon background download.jpg");
 
-	<div class="field">
-		<label for="password">Password</label><br>
-		<input type="password" name="password" autocomplete="off">
-	</div>
+		}label{
+			//color: green;
+		}
+		.log{
+			text-align: center;
+			padding-top: 10%;
+		}input{
+			width: 20%;
+			height: 3%;
+		}
+		.field{
+			padding-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="post" class="log">
+		<div class="field">
+			<label for="username">Username</label><br>
+			<input type="text" name="username" autocomplete="off">
+		</div>
 
-	<div class="field">
-		<label for="remember">
-			<input type="checkbox" name="remember" id="remember"> Remember me
-		</label><br>
-	</div>
+		<div class="field">
+			<label for="password">Password</label><br>
+			<input type="password" name="password" autocomplete="off">
+		</div>
 
-	<input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-	<br><input type="submit" value="Log in" style="background-color: grey ">
-</form>
+		<div class="field">
+			<label for="remember">Remember me </label>
+				<input type="checkbox" name="remember" id="remember">
+			</label><br>
+		</div>
+
+		<input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+		<br><input type="submit" value="Log in" style="background-color: grey ">
+	</form>
+</body>
+</html>

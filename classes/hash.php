@@ -5,9 +5,9 @@ class Hash
         return hash('sha256', $string . $salt); //adding randomly generated string to the created password
     }
 
-    public static function salt(){
+    public static function salt($length){
         //return mcrypt_create_iv($length);
-        return "12as23assdfd232433X";
+        return uniqid('', true);
     }
 
     public static function unique(){
