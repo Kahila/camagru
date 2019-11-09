@@ -17,6 +17,7 @@
 	<input type="file" name="file">
 	<button type="submit" name="submit">Upload</button><br>
 	<li><a href="index.php">BAck to Home</a></li>
+	<li><a href="galary.php">View Galary</a></li>
 </form>
 </body>
 </html>
