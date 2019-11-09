@@ -18,6 +18,7 @@ if ($user->isLoggedIn()){
 		<li><a href="update.php">Update Details</a></li>
 		<li><a href="changepassword.php">Change Password</a></li>
 		<li><a href="image_upload.php">Upload Image</a></li>
+		<li><a href="capture.php">Capture Image</a></li>
 
 <?php 
 }else{

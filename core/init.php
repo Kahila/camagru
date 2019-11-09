@@ -6,11 +6,11 @@ session_start();
 
 $GLOBALS['config'] = array(
     'mysql' => array(
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'username' => 'root',
-        'password' => 'root',
-        'db' => 'camagru',
-        'port' => '8889'
+        'password' => '123456',
+        'db' => 'camagru'
+        //'port' => '8080'
     ),
     'remember' => array(
         'cookie_name' => 'hash',

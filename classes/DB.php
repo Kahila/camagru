@@ -18,7 +18,7 @@ class DB{
 			try{
 				//connection to database
 				//echo "befor trying......";
-				$this->_pdo = new PDO('mysql:host='.config::get('mysql/host').';port=8889;dbname='.config::get('mysql/db'), config::get('mysql/username'), config::get('mysql/password'));
+				$this->_pdo = new PDO('mysql:host='.config::get('mysql/host').';port=8080;dbname='.config::get('mysql/db'), config::get('mysql/username'), config::get('mysql/password'));
 				//echo 'connected....';
 			}catch(PDOException $e){
 				//echo " caught.....";
