@@ -8,7 +8,6 @@ if (Session::exists('home')){
 $user = new User();//current user
 if ($user->isLoggedIn()){
 	echo "logged in";
-
 ?>
 
 <p>Welcome <a href= '#'><?php echo escape($user->data()->username); ?>!</p>
@@ -23,7 +22,23 @@ if ($user->isLoggedIn()){
 <?php 
 }else{
 	echo '<p><a href="login.php">Log in</a> or  <a href="register.php">Register </a> </p>';
-}
+
+	$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
+		if ($conn) echo "Connection successful <br/>";
+            $query = "SELECT * FROM camagru.images";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $count = $stmt->rowCount();
+            echo "num image = " . $count . "<br/>";
+            $res = $stmt->fetchAll();
+            foreach ($res as $image) {
+                $ima = $image['image_name'];
+                echo "<html>
+                        <img src='uploads/$ima' legth='=30%' width='30%' border='18px solid black'></img>
+                    </html>
+                ";
+            }
+		}
 ?>
 <!-- 
 // echo $user->data()->username;

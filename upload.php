@@ -7,7 +7,6 @@ error_reporting(E_ALL);
 
 if (isset($_POST['submit'])){
 	$file = $_FILES['file'];
-	//print_r($file);
 	$fileName = $_FILES['file']['name'];
 	$fileTmpName= $_FILES['file']['tmp_name'];
 	$fileSize = $_FILES['file']['size'];
@@ -33,30 +32,9 @@ if (isset($_POST['submit'])){
 						'user_id' => $image->data()->id,
 						'image_name' => $fileNameNew
 					));
-					//$images = new User();
-					//echo $images->get_images();
-					//get_images();
-					$query = "SELECT * FROM camagru.images";
-					$stmt = $conn->prepare($query);
-					$stmt->execute();
-					// $name =  ($conn->query($query));
-					$count = $stmt->rowCount();
-					echo "num image = " . $count . "<br/>";
-					// print_r ($name->fetch_All_assoc());
-					$res = $stmt->fetchAll();
-					// print_r($res);
-					foreach ($res as $image) {
-						$ima = $image['image_name'];
-						//echo "uploads/".$ima."<br>";
-						echo "<html>
-							<img src='uploads/$ima' legth='=30%' width='30%'></img>
-						</html>
-						";
-					}
-					//print_r ($name->fetch_assoc());
 					move_uploaded_file($fileTmpName, $fileDestination);
 					echo "<li><a href='image_upload.php'>BAck to Home</a></li>";
-					//header("location: image_upload.php");
+					header("location: image_upload.php");
 				}else{
 					echo "file size is too big";
 				}
