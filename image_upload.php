@@ -52,10 +52,9 @@ if ($user->isLoggedIn()){
             $res = $stmt->fetchAll();
             foreach ($res as $image) {
                 $ima = $image['image_name'];
-                echo "<html>
+                echo "
                         <style type='text/css'> img{ height: 200px; width: 200px;}</style>
-                            <img src='uploads/$ima' legth='=30%' width='30%' border='18px solid black'></img>
-                    </html>
+                        <button type='submit'><img src='uploads/$ima' name='$ima' legth='=30%' width='30%' border='18px solid black'><h3>name $ima<h3></img></button></a>
                 ";
             }
 }catch(PDOException $ex) {
