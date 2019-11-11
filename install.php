@@ -40,7 +40,7 @@
 			)";
 			$comments = "CREATE TABLE $dbName.comments(
 				id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-				image_name VARCHAR(70) NOT NULL,
+				image_id VARCHAR(70) NOT NULL,
 				comment VARCHAR(200) NOT NULL
 			)";
 		if($conn->query($tableUsers)){

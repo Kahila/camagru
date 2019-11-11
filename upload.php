@@ -23,7 +23,7 @@ if (isset($_POST['submit'])){
 		if ($conn) echo "Connection successful <br/>";
 		if (in_array($fileActualExt, $allowed)){
 			if (!$fileError){
-				if ($fileSize < 3000000){
+				if ($fileSize < 6000000){
 					// substr($code, 0, 5)
 					$name = substr((uniqid('', true)),17 ,23);
 					$fileNameNew = $name.".".$fileActualExt;
@@ -32,7 +32,8 @@ if (isset($_POST['submit'])){
 					//print_r($this->_data);
 					$image->upload_image(array(
 						'user_id' => $image->data()->id,
-						'image_name' => $fileNameNew
+						'image_name' => $fileNameNew,
+						'likes' => 0
 					));
 					move_uploaded_file($fileTmpName, $fileDestination);
 					echo "<li><a href='image_upload.php'>BAck to Home</a></li>";

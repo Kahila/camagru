@@ -22,7 +22,7 @@ if ($user->isLoggedIn()){
             <a href="changepassword.php"><button >Change Password</button></a><br>
             <a href="image_upload.php"><button >Image Management</button></a><br>
             <a href="capture.php"><button >Capture Image</button></a><br>
-            <a href="galary.php"><button >MY GALARY</button></a>
+            <a href="galary.php"><button >GALARY</button></a>
          </ul>
     </div>  
 </head>

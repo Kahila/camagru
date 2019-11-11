@@ -1,5 +1,6 @@
 <?php
 require_once 'core/init.php';
+$i = 0;
 
 $user = new User();
 if ($user->isLoggedIn()){
@@ -12,6 +13,10 @@ if ($user->isLoggedIn()){
                 <form class='del' method='post'>
                     <label for='name'>All Images</label><br>
                 </form>
+                <form method='post'>
+                    <button name='count'>next</button>
+                    <button name='prev'>prev</button>
+                </form>
             </body>
         </html>
         ";
@@ -22,8 +27,10 @@ if ($user->isLoggedIn()){
             $stmt = $conn->prepare($query);
             $stmt->execute();
             $count = $stmt->rowCount();
+            $likes = 0;
             echo "num image = " . $count . "<br/>";
             $res = array_reverse($stmt->fetchAll());
+            $i = 0;
             foreach ($res as $image) {
                 $ima = $image['image_name'];
                 echo "
@@ -32,10 +39,26 @@ if ($user->isLoggedIn()){
                                 <img src='uploads/$ima' name='$ima' legth='=30%' width='30%' border='8px solid black'>
                                     <h3>name $ima<h3>
                                     <h3>likes: <h3>
+                                    <a href='comments.php'>Coments</a>
                                 </img>
-                        </button></a>
+                        </button></a>      
                 ";
+                if($i == 2){
+                        echo '<br>';
+                        $i = -1;
+                    }
+                $i++;
             }
+            $c = 0;
+            // UPDATE `images` SET `likes` = '0' WHERE `images`.`image_name` = '635097.jpg'
+            // foreach ($res as $image) {
+            //     $ima = $image['image_name'];
+            //     if(isset($ima)){
+            //         echo "$ima is set";
+            //         //break;
+            //     }
+            // }
+            // $query = "INSERT ";
 }catch(PDOException $ex) {
 	echo "ERROR: " . $ex->getMessage() . "<br/>";
 }
@@ -64,7 +87,7 @@ if ($user->isLoggedIn()){
                         <style type='text/css'> img{ height: 200px; width: 200px;}</style>
                         <button type='submit'><img src='uploads/$ima' name='$ima' legth='=30%' width='30%' border='8px solid black'><h3>name $ima<h3></img></button></a>
                 ";
-            }
+        }
 }
 ?>
 

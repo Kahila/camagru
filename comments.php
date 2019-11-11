@@ -50,3 +50,16 @@ if (isset($_POST['submit'])){
 	}
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>coments</title>
+</head>
+<body style="background-color: grey;">
+	<form method="post">
+		<input type="form" name="coments" placeholder="input new coment here" style="width: 200px; height: 200px;"><br>
+		<button type="submit" name="submit">Submit</button><br>
+	</form>
+</body>
+</html>

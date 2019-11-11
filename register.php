@@ -27,7 +27,8 @@ if (input::exists()) {
             ),
             'email' => array(
                 'required' => true,
-            ),
+                'unique' => 'users'
+            )
         ));
 
         if ($validation->passed()) {
@@ -55,7 +56,22 @@ if (input::exists()) {
                // please copy and paste the verification code provided to you onto the register page");
                //  mail("adonis7121@gmail.com", "Camagru verification", $msg, "akalomob@student.wethinkcode.co.za");
 
-              redirect::go_to('index.php');
+                // $to = "akalombo@student.wethonkcode.co.za";
+                // $subject = "Email Verification";
+                // $message =  " click this link!<a href = 'http://localhost:8080/Web_Application/verify.php?vkey=$vkey'>Register Account</a>";
+                // $headers = "From:noreply@localhost:8080 \r\n";
+                // $headers .= "MIME-Version: 1.0" . "\r\n";
+                // $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+
+                // if (mail($to,$subject,$message,$headers))
+                // {
+                //   echo ("success");
+                // }
+                // else {
+                //   echo("Fail");
+                // }
+
+              // redirect::go_to('index.php');
             } catch (Exception $e) {
                 die($e->getMessage());
             }
