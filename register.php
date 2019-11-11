@@ -58,7 +58,7 @@ if (input::exists()) {
 
                 $to = "adonis7121@gmail.com";
                 $subject = "Email Verification";
-                $message =  " click this link!<a href = 'http://localhost:8888/Web_Application/verify.php?vkey=$vkey'>Register Account</a>";
+                $message =  " come on man jus register to the site";
                 $headers = "From:noreply@localhost:8080 \r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
