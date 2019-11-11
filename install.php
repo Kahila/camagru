@@ -25,7 +25,7 @@
 				joined datetime NOT NULL,
 				grp INT(11) UNSIGNED NOT NULL,
 				email VARCHAR(40) NOT NULL,
-				Confirmed INT(11) NOT NULL
+				confirmed VARCHAR(6) NOT NULL
 			)";
 			$tableUser_session = "CREATE TABLE $dbName.users_session(
 				id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,

@@ -24,8 +24,9 @@
 	<h1 style="text-align: center;">Upload Image</h1>
 	<form action="upload.php" method="post" enctype="multipart/form-data" style="text-align: center;"> 
 		<input type="file" name="file"><br><br>
-		<button type="submit" name="submit" style="width: 200px;">Upload</button><br><br>
+		<button type="submit" name="submit" style="width: 200px;">Upload</button>
 	</form>
+	<a href="delete.php"><button style="width: 200px;">DELETE IMAGES</button></a><br><br>
 </body>
 </html>
 
@@ -42,7 +43,7 @@ if ($user->isLoggedIn()){
             $stmt = $conn->prepare($query);
             $stmt->execute();
             $count = $stmt->rowCount();
-            echo "num image = " . $count . "<br/>";
+            echo "<h3>you have " . $count . " images that are uploaded by you</h3><br/>";
             $res = $stmt->fetchAll();
             foreach ($res as $image) {
                 $ima = $image['image_name'];

@@ -63,7 +63,7 @@ if (input::exists()){
 <head>
 	<title>uploads</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-    <h1 style="text-align: center; "> Uploads </h1>
+    <h1 style="text-align: center; "> Update Info </h1>
 </head>
 <body>
 	<form action="" method="post">

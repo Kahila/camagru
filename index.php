@@ -7,7 +7,6 @@ if (Session::exists('home')){
 $user = new User();//current user
 if ($user->isLoggedIn()){
 ?>
-
 <html><!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +20,7 @@ if ($user->isLoggedIn()){
          <ul>   
             <a href="update.php"><button >Update Details</button></a><br>
             <a href="changepassword.php"><button >Change Password</button></a><br>
-            <a href="image_upload.php"><button >Upload Image</button></a><br>
+            <a href="image_upload.php"><button >Image Management</button></a><br>
             <a href="capture.php"><button >Capture Image</button></a><br>
             <a href="galary.php"><button >MY GALARY</button></a>
          </ul>
@@ -33,7 +32,7 @@ if ($user->isLoggedIn()){
 
 <?php 
 }else{
-	echo "<a href='login.php'><button >Log in</button></a><br><a href='register.php'><button>Register</button></a>";
+	echo "<a href='login.php'><button >Log in</button'></a><a href='register.php'><button>Register</button></a><br><br><br><br><br><br>";
 
 	$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
 		// if ($conn) echo "Connection successful <br/>";
@@ -46,7 +45,8 @@ if ($user->isLoggedIn()){
             foreach ($res as $image) {
                 $ima = $image['image_name'];
                 echo "<html>
-                        <img src='uploads/$ima' legth='=30%' width='30%' border='18px solid black' style='background-size: cover;'></img>
+                        <style type='text/css'> img{ height: 200px; width: 200px;}</style>
+                        <img src='uploads/$ima' legth='=200px' width='200px' border='5px solid black'></img>
                     </html>
                 ";
             }

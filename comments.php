@@ -24,9 +24,7 @@ if (isset($_POST['submit'])){
 		if (in_array($fileActualExt, $allowed)){
 			if (!$fileError){
 				if ($fileSize < 3000000){
-					// substr($code, 0, 5)
-					$name = substr((uniqid('', true)),17 ,23);
-					$fileNameNew = $name.".".$fileActualExt;
+					$fileNameNew = uniqid('', true).".".$fileActualExt;
 					$fileDestination = 'uploads/'.$fileNameNew;
 					$image = new User();
 					//print_r($this->_data);
