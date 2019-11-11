@@ -18,8 +18,8 @@ if (isset($_POST['submit'])){
 	$allowed = array('jpg', 'jpeg', 'png');
 
 	try {
-		// $conn = new mysqli("localhost", "root", "123456");
-		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
+		// $conn = new mysqli("localhost", "root", "root");
+		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
 		if ($conn) echo "Connection successful <br/>";
 		if (in_array($fileActualExt, $allowed)){
 			if (!$fileError){

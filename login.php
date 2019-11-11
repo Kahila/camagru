@@ -33,6 +33,7 @@ require_once 'core/init.php';
 <html>
 <head>
 	<title>camagru login</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<style type="text/css">
 		i{
 			color: red;
@@ -62,6 +63,7 @@ require_once 'core/init.php';
 	</style>
 </head>
 <body>
+	<br><a href="index.php" ><button style="width: 10%;border-radius: 25px;height: 3%; background-color: grey;">HOME</button></a>
 	<form action="" method="post" class="log">
 		<div class="field">
 			<label for="username">Username</label><br>
@@ -74,8 +76,8 @@ require_once 'core/init.php';
 		</div>
 
 		<div class="field">
-			<label for="remember">Remember me </label>
-				<input type="checkbox" name="remember" id="remember">
+			<label for="remember">Remember me </label><br>
+				<input type="checkbox" name="remember" id="remember" placeholder="Remember me">
 			</label><br>
 		</div>
 

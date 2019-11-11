@@ -76,6 +76,7 @@ if (input::exists()) {
 		body{
 			//background-color: grey;
 			background-image: url("webimages/1920x1080 canon background download.jpg");
+            background-size: cover;
 
 		}label{
 			//color: green;
@@ -86,6 +87,7 @@ if (input::exists()) {
 		}input{
 			width: 20%;
 			height: 3%;
+            border-radius: 25px;
 		}
 		.field{
 			padding-top: 20px;
@@ -93,6 +95,7 @@ if (input::exists()) {
 	</style>
 </head>
 <body >
+    <br><a href="index.php" ><button style="width: 10%;border-radius: 25px;height: 3%; background-color: grey;">HOME</button></a>
 	<form action="" method="post" class="register">
 		<!-- <img src="webimages/hxf_04 by Elijah Porter.png -->
 		<div class="field">
@@ -116,7 +119,8 @@ if (input::exists()) {
 			<input type="email" name="email" id="email" placeholder="Email address" value="<?php echo escape(Input::get('email')); ?>">
 		</div>
 		<input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-		<br><input type="submit" name="Register" style="background-color: grey ">
+		<br><input type="submit" name="Register" style="background-color: grey "><br>
 	</form>
+    
 </body>
 </html>

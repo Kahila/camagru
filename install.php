@@ -1,7 +1,7 @@
 <?php
 	$servername = 'localhost';
 	$username = 'root';
-	$password = '123456';
+	$password = 'root';
 	$dbName = 'camagru';
 
 	$conn = new mysqli($servername, $username, $password);
@@ -24,7 +24,8 @@
 				name VARCHAR(50) NOT NULL,
 				joined datetime NOT NULL,
 				grp INT(11) UNSIGNED NOT NULL,
-				email VARCHAR(40) NOT NULL			
+				email VARCHAR(40) NOT NULL,
+				Confirmed INT(11) NOT NULL
 			)";
 			$tableUser_session = "CREATE TABLE $dbName.users_session(
 				id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,

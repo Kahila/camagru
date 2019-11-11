@@ -3,14 +3,12 @@ require_once 'core/init.php';
 
 $user = new User();
 if ($user->isLoggedIn()){
-	echo "logged in\n";
         $id = $user->data()->id;
-        echo $id."<br/>";
-        echo "<li><a href='image_upload.php'>Back To Upload</a></li>";
+        echo "<h1 style= 'text-align: center; padding-bottom: 30px;'>GALARY</h1>";
+        echo "<a href='index.php'><button>HOME</button></a><br><br>";
     try {
-		// $conn = new mysqli("localhost", "root", "123456");
-		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
-		if ($conn) echo "Connection successful <br/>";
+		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
+		// if ($conn) echo "Connection successful <br/>";
             $query = "SELECT * FROM camagru.images WHERE user_id=$id";
             $stmt = $conn->prepare($query);
             $stmt->execute();
@@ -20,6 +18,7 @@ if ($user->isLoggedIn()){
             foreach ($res as $image) {
                 $ima = $image['image_name'];
                 echo "<html>
+                        <style type='text/css'> img{ height: 200px; width: 200px;}</style>
                         <img src='uploads/$ima' legth='=30%' width='30%' border='18px solid black'></img>
                     </html>
                 ";
@@ -31,3 +30,14 @@ if ($user->isLoggedIn()){
     header("location: includes/404.php");
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galary</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+</body>
+</html>
