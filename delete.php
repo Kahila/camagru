@@ -7,11 +7,15 @@ if ($user->isLoggedIn()){
         echo "<h1 style= 'text-align: center; padding-bottom: 30px;'>IMAGE DELETION</h1>";
         echo "<a href='index.php'><button>HOME</button></a> <br><br>";
         echo "
-        	<form class='del' method='post'>
-				<label for='name'>Delete image</label><br>
-				<input type='text' name='text' id='text' placeholder='file name'>
-				<br><input type='submit' name='submit' style='background-color: grey'><br>
-			</form>
+        <html>
+	        <body style = 'background-color:gray; text-align:center;'>
+	        	<form class='del' method='post'>
+					<label for='name'>Delete image</label><br>
+					<input type='text' name='text' id='text' placeholder='file name'>
+					<br><input type='submit' name='submit' style='background-color: grey'><br>
+				</form>
+			</body>
+		</html>
         ";
     try {
 		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
@@ -31,7 +35,7 @@ if ($user->isLoggedIn()){
                         <button type='submit'><img src='uploads/$ima' name='$ima' legth='=30%' width='30%' border='18px solid black'><h3>name $ima<h3></img></button></a>
                 ";
             }
-	if (isset($_POST['submit'])){
+		if (isset($_POST['submit'])){
 		//echo input::get('text');
 		$found = 0;
 		foreach ($res as $key) {

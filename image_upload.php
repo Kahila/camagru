@@ -1,6 +1,11 @@
 <?php
 	require_once 'core/init.php';
-
+	echo "
+        <html>
+            <body style = 'background-color:gray; text-align:center;'>
+            </body>
+        </html>
+        ";
 	$user = new User();
 	if (!$user->isLoggedIn()){
 		redirect::go_to('index.php');
@@ -17,13 +22,13 @@
 		}
 	</style>
 	<title>Uploads</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
 </head>
 <body>
-	<a href="index.php"><button style="width: 100px; background-color: red;">Home</button> </a>
 	<h1 style="text-align: center;">Upload Image</h1>
+	<a href="index.php"><button style="width: 100px; background-color: green; float: left;">Home</button> </a>
 	<form action="upload.php" method="post" enctype="multipart/form-data" style="text-align: center;"> 
-		<input type="file" name="file"><br><br>
+		<input type="file" name="file">
 		<button type="submit" name="submit" style="width: 200px;">Upload</button>
 	</form>
 	<a href="delete.php"><button style="width: 200px;">DELETE IMAGES</button></a><br><br>
@@ -48,7 +53,8 @@ if ($user->isLoggedIn()){
             foreach ($res as $image) {
                 $ima = $image['image_name'];
                 echo "<html>
-                        <img src='uploads/$ima' legth='=200px' width='200px' border='5px solid black'></img>
+                        <style type='text/css'> img{ height: 200px; width: 200px;}</style>
+                            <img src='uploads/$ima' legth='=30%' width='30%' border='18px solid black'></img>
                     </html>
                 ";
             }

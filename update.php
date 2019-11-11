@@ -65,6 +65,7 @@ if (input::exists()){
 	<link rel="stylesheet" type="text/css" href="css/main.css">
     <h1 style="text-align: center; "> Update Info </h1>
 </head>
+<a href="index.php"><button style="width: 100px" >HOME</button></a>
 <body>
 	<form action="" method="post">
 		<div style="text-align: center;">
