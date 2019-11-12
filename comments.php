@@ -5,10 +5,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
-echo "<a href='galary.php'>GALARY</a>";
+echo "<a href='galary.php'><button>GALARY</button></a>";
 require_once 'core/init.php';
 $filename = $_GET['filename'];
-$name = ($_POST['new']);
+if (isset(($_POST['new']))){
+	$name = $_POST['new'];
+}
 
 $user = new User();
 if ($name){
