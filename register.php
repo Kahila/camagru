@@ -49,14 +49,14 @@ if (input::exists()) {
                 //echo "here.....";
                 echo substr($code, 0, 5);
                 Session::flash('home', 'Congratulations You Have Been Registered ...>>>>>>>| Remember to Verify Email in Order To Sign In |<<<<<<<<<<');
-                header('location: index.php');
+               
                // echo "here////";
 
                // $msg = wordwrap("You have succesfully registered to camagru, in order to register 
                // please copy and paste the verification code provided to you onto the register page");
                //  mail("adonis7121@gmail.com", "Camagru verification", $msg, "akalomob@student.wethinkcode.co.za");
 
-                $to = "adonis7121@gmail.com";
+                $to = "wilabad603@mailhub24.com";
                 $subject = "Email Verification";
                 $message =  " come on man jus register to the site";
                 $headers = "From:noreply@localhost:8080 \r\n";
@@ -70,6 +70,7 @@ if (input::exists()) {
                 else {
                   echo("Fail");
                 }
+                 header('location: index.php');
 
               // redirect::go_to('index.php');
             } catch (Exception $e) {
