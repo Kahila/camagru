@@ -52,7 +52,7 @@ class User{
 
 	public function upload_comment($fields = array()){
 		if (!$this->_db->insert('comments', $fields)){
-			throw new Exception('failed to upload image.');
+			throw new Exception('failed to comment.');
 		}
 	}
 

@@ -123,7 +123,7 @@ if (input::exists()) {
 	<form action="" method="post" class="register">
 		<!-- <img src="webimages/hxf_04 by Elijah Porter.png -->
 		<div class="field">
-			<lebel for="username" >Username</lebel><br>
+			<label for="username" >Username</label><br>
 			<input type="text" placeholder="Username" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><!-- using escape function to sanitize data -->
 		</div>
 		<div class="field">
