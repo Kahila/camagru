@@ -1,7 +1,7 @@
 <?php
 	$servername = 'localhost';
 	$username = 'root';
-	$password = 'root';
+	$password = '123456';
 	$dbName = 'camagru';
 
 	$conn = new mysqli($servername, $username, $password);

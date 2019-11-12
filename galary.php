@@ -1,8 +1,15 @@
 <?php
 require_once 'core/init.php';
+
+$page_num = $_GET['pagenum'] ;
+if (!$page_num){
+    $page_num = 1;
+}
+
 $i = 0;
 
 $user = new User();
+$nextpg = $page_num+1;
 if ($user->isLoggedIn()){
        // $id = $user->data()->id;
         echo "<h1 style= 'text-align: center; padding-bottom: 30px;'>GALARY</h1>";
@@ -17,11 +24,12 @@ if ($user->isLoggedIn()){
                     <button name='count'>next</button>
                     <button name='prev'>prev</button>
                 </form>
+                <a href='galary.php?pagenum=$nextpg'a/>
             </body>
         </html>
         ";
     try {
-		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
+		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
 		// if ($conn) echo "Connection successful <br/>";
             $query = "SELECT * FROM camagru.images";
             $stmt = $conn->prepare($query);
@@ -72,15 +80,18 @@ if ($user->isLoggedIn()){
             </body>
         </html>
         ";
-    $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
+    $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
         // if ($conn) echo "Connection successful <br/>";
     echo "<a href='index.php'><button>HOME</button></a><br><br>";
-            $query = "SELECT * FROM camagru.images";
+            $query = "SELECT * FROM camagru.images limit 1";
             $stmt = $conn->prepare($query);
             $stmt->execute();
             $count = $stmt->rowCount();
             //echo "num image = " . $count . "<br/>";
             $res = array_reverse($stmt->fetchAll());
+            // for (i from 1*page to 5 * page){
+            //     $image = $res[i]
+            // }
             foreach ($res as $image) {
                 $ima = $image['image_name'];
                 echo "

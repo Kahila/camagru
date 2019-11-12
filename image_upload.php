@@ -42,7 +42,7 @@ $user = new User();
 if ($user->isLoggedIn()){
         $id = $user->data()->id;
     try {
-		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
+		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
 		// if ($conn) echo "Connection successful <br/>";
             $query = "SELECT * FROM camagru.images WHERE user_id=$id";
             $stmt = $conn->prepare($query);

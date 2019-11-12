@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
 
 	try {
 		// $conn = new mysqli("localhost", "root", "root");
-		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
+		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
 		if ($conn) echo "Connection successful <br/>";
 		if (in_array($fileActualExt, $allowed)){
 			if (!$fileError){
