@@ -55,10 +55,11 @@ if (input::exists()) {
                // $msg = wordwrap("You have succesfully registered to camagru, in order to register 
                // please copy and paste the verification code provided to you onto the register page");
                //  mail("adonis7121@gmail.com", "Camagru verification", $msg, "akalomob@student.wethinkcode.co.za");
-
-                $to = "wilabad603@mailhub24.com";
+            //    https://temp-mail.org/en/
+                $code = $user->login(input::get('confirmed'));
+                $to = "lixat59209@3mailapp.net";
                 $subject = "Email Verification";
-                $message =  " come on man jus register to the site";
+                $message =  "the final code is the temp code : $code";
                 $headers = "From:noreply@localhost:8080 \r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
@@ -70,7 +71,7 @@ if (input::exists()) {
                 else {
                   echo("Fail");
                 }
-                 header('location: index.php');
+                // header('location: index.php');
 
               // redirect::go_to('index.php');
             } catch (Exception $e) {

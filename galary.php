@@ -7,7 +7,6 @@ if (!$page_num){
 }
 
 $i = 0;
-
 $user = new User();
 $nextpg = $page_num+1;
 $prevpg = $page_num-1;
