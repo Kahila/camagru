@@ -46,12 +46,12 @@ if ($user->isLoggedIn()){
             foreach ($res as $image) {
                 $ima = $image['image_name'];
                 echo "
-                        <style type='text/css'> img{ height: 200px; width: 200px;}</style>
+                        <style type='text/css'> img{ height: 250px; width: 250px; }</style>
                             <button type='submit'>
                                 <img src='uploads/$ima' name='$ima' legth='=30%' width='30%' border='8px solid black'>
                                     <h3>name $ima<h3>
                                     <h3>likes: <h3>
-                                    <a href='comments.php'>Coments</a>
+                                    <a href='comments.php?filename=$ima'>Coments</a>
                                 </img>
                         </button></a>      
                 ";
@@ -108,7 +108,7 @@ if ($user->isLoggedIn()){
             foreach ($res as $image) {
                 $ima = $image['image_name'];
                 echo "
-                        <style type='text/css'> img{ height: 200px; width: 200px;}</style>
+                        <style type='text/css'> img{ height: 250px; width: 250px;}</style>
                             <button type='submit'>
                                <img src='uploads/$ima' name='$ima' legth='=30%' width='30%' border='8px solid black'>
                                 </img>
