@@ -59,7 +59,7 @@ if (input::exists()) {
                 $code = $user->login(input::get('confirmed'));
                 $to = "lixat59209@3mailapp.net";
                 $subject = "Email Verification";
-                $message =  "the final code is the temp code : $code";
+                $message =  "login using : url";
                 $headers = "From:noreply@localhost:8080 \r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
