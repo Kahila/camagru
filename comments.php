@@ -8,6 +8,8 @@ $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
 echo "<a href='galary.php'><button>GALARY</button></a>";
 require_once 'core/init.php';
 $filename = $_GET['filename'];
+
+$name = null;
 if (isset(($_POST['new']))){
 	$name = $_POST['new'];
 }
@@ -39,12 +41,12 @@ if ($name){
 	$stmt->execute();
 	$count = $stmt->rowCount();
 	$res = $stmt->fetchAll();
-	echo $count;
+	echo $count, " coments";
 	echo "<form action='' style='text-align:center;'>";
 	foreach($res as $comment){
 		$ima = $comment['comment'];
 		echo "
-				<textarea type='text' readonly='readonly' name='coments' style='width: 110px; 	height: 110px; text-align:center;'>
+				<textarea type='text' readonly='readonly' name='coments' style='width: 120px; 	height: 120px; text-align:center; background-color: orange;'>
 				$ima</textarea>
 		";
 	 }
