@@ -24,6 +24,7 @@
 
 <html>
     <head>
+        <a href="index.php">Home</a>
         <h1 style="text-align:center;"><i>Input The Code Sent To Your Email</i></h1>
         <title>verify acount</title>
     </head>

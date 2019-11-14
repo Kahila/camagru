@@ -9,15 +9,18 @@ require_once 'core/init.php';
 				'username' => array('required' => true),
 				'password' => array('required' => true)
 			));
-			//$user = new User();
+			
 			if ($validation->passed()){
 				$user = new User();
 				$remember = (input::get('remember') === 'on') ? true : false;
-
 				$Login = $user->login(input::get('username'), input::get('password'), $remember);
-
 				if ($Login){
-					redirect::go_to('index.php');
+					if (strlen($user->data()->confirmed)==5){
+						$user->logout();
+						redirect::go_to('verify.php');
+					}else {
+						redirect::go_to('index.php');
+					}
 				}else{
 					echo "failed to log in";
 				}
