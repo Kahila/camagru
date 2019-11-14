@@ -9,6 +9,7 @@ require_once 'core/init.php';
 				'username' => array('required' => true),
 				'password' => array('required' => true)
 			));
+			//$user = new User();
 			if ($validation->passed()){
 				$user = new User();
 				$remember = (input::get('remember') === 'on') ? true : false;

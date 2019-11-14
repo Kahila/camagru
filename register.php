@@ -47,19 +47,13 @@ if (input::exists()) {
                     'confirmed' => substr($code, 0, 5)
                 ));
                 //echo "here.....";
-                echo substr($code, 0, 5);
+                $id = substr($code, 0, 5);
                 Session::flash('home', 'Congratulations You Have Been Registered ...>>>>>>>| Remember to Verify Email in Order To Sign In |<<<<<<<<<<');
                
-               // echo "here////";
-
-               // $msg = wordwrap("You have succesfully registered to camagru, in order to register 
-               // please copy and paste the verification code provided to you onto the register page");
-               //  mail("adonis7121@gmail.com", "Camagru verification", $msg, "akalomob@student.wethinkcode.co.za");
-            //    https://temp-mail.org/en/
                 $code = $user->login(input::get('confirmed'));
-                $to = "lixat59209@3mailapp.net";
+                $to = input::get('email');
                 $subject = "Email Verification";
-                $message =  "login using : url ";
+                $message =  "<a href='localhost:8080/camagru/index.php?activation=$id'>click</a>";
                 $headers = "From:noreply@localhost:8080 \r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
@@ -73,7 +67,7 @@ if (input::exists()) {
                 }
                 // header('location: index.php');
 
-              // redirect::go_to('index.php');
+              redirect::go_to('verify.php');
             } catch (Exception $e) {
                 die($e->getMessage());
             }
