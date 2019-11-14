@@ -33,26 +33,14 @@ if ($user->isLoggedIn()){
 <?php 
 }
 else{
-	echo "<a href='login.php'><button >Log In</button'></a> <br>  <a href='register.php'><button>Register</button></a>
+    echo "
+       <form style='text-align:center;'> 
+            <h1>CaMaGrU</h1><br><br><br>
+    <a href='login.php'><button>Log In</button></a> <br>  <a href='register.php'><button>Register</button></a>
             <br><a href='galary.php'><button>View GAalary</button></a>
+            </form>
     ";
-	// $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "root");
-	// 	// if ($conn) echo "Connection successful <br/>";
- //            $query = "SELECT * FROM camagru.images";
- //            $stmt = $conn->prepare($query);
- //            $stmt->execute();
- //            $count = $stmt->rowCount();
- //            // echo "num image = " . $count . "<br/>";
- //            $res = $stmt->fetchAll();
- //            foreach ($res as $image) {
- //                $ima = $image['image_name'];
- //                echo "<html>
- //                        <style type='text/css'> img{ height: 200px; width: 200px;}</style>
- //                        <img src='uploads/$ima' legth='=200px' width='200px' border='5px solid black'></img>
- //                    </html>
- //                ";
- //            }
-		}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,7 +52,4 @@ else{
 
 </body>
 </html>
-<!-- 
-// echo $user->data()->username;
-// $otheruser = new User(1);//outher user at id 1
-//echo Session::get(config::get('session/session_name')); -->
+
