@@ -34,11 +34,9 @@ if ($user->isLoggedIn()){
 }
 else{
     echo "
-       <form style='text-align:center;'> 
-            <h1>CaMaGrU</h1><br><br><br>
+            <h1 style='text-align: center;'>CaMaGrU</h1><br><br><br>
     <a href='login.php'><button>Log In</button></a> <br>  <a href='register.php'><button>Register</button></a>
             <br><a href='galary.php'><button>View GAalary</button></a>
-            </form>
     ";
 }
 ?>
