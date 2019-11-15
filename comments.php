@@ -14,13 +14,35 @@ if (isset(($_POST['new']))){
 	$name = $_POST['new'];
 }
 
+$query = "SELECT * FROM images WHERE image_name='$filename'";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$res = $stmt->fetchAll();
+
+//print_r ($res);
+//$likes = 0;
+foreach($res as $like){
+	$likes = $like['likes'];
+}
+
+//$likes;
+if (isset($_POST['like'])){
+	$likes++;
+	$query = "UPDATE `images` SET `likes` = '$likes' WHERE `images`.`image_name` = '$filename'";
+	$stmt = $conn->prepare($query);
+    $stmt->execute();
+	//echo $likes;
+}
+
 $user = new User();
 if ($name){
 	 $user->upload_comment(array(
 		 'image_id' => $filename,
 		 'comment' => $name
 	 ));}
-	 echo "<h1 style='text-align:center;'>comments</h1>"
+	 echo "<h1 style='text-align:center;'>comments</h1><br>
+	 		<body style='background-image:url(uploads/$filename);background-size: cover;background-repeat: no-repeat;'>
+	 "
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,6 +53,7 @@ if ($name){
 	<form method="post">
 		<textarea type="text" name="new" placeholder="input new coment here" style="width: 200px; height: 200px;"></textarea><br>
 		<button type="submit" name="submit">Submit</button><br>
+		<button type="submit" name="like">like image</button>
 	</form>
 	
 </body>

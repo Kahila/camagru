@@ -1,6 +1,8 @@
 <?php
 require_once 'core/init.php';
 
+ini_set('display_errors', 'off');
+
 $page_num = $_GET['pagenum'] ;
 if (!$page_num){
     $page_num = 1;
@@ -44,13 +46,22 @@ if ($user->isLoggedIn()){
             $i = 0;
             foreach ($res as $image) {
                 $ima = $image['image_name'];
+
+                $query = "SELECT * FROM images WHERE image_name='$ima'";
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+                $l = $stmt->fetchAll();
+                
+                foreach($l as $like){
+                	$likes = $like['likes'];
+                }
                 echo "
                         <style type='text/css'> img{ height: 250px; width: 250px; }</style>
                             <button type='submit'>
                                 <img src='uploads/$ima' name='$ima' legth='=30%' width='30%' border='8px solid black'>
                                     <h3>name $ima<h3>
-                                    <h3>likes: <h3>
-                                    <a href='comments.php?filename=$ima'>Coments</a>
+                                    <h3>likes: $likes<h3>
+                                    <a href='comments.php?filename=$ima'>Coment OR Like</a>
                                 </img>
                         </button></a>      
                 ";
@@ -61,15 +72,6 @@ if ($user->isLoggedIn()){
                 $i++;
             }
             $c = 0;
-            // UPDATE `images` SET `likes` = '0' WHERE `images`.`image_name` = '635097.jpg'
-            // foreach ($res as $image) {
-            //     $ima = $image['image_name'];
-            //     if(isset($ima)){
-            //         echo "$ima is set";
-            //         //break;
-            //     }
-            // }
-            // $query = "INSERT ";
 }catch(PDOException $ex) {
 	echo "ERROR: " . $ex->getMessage() . "<br/>";
 }

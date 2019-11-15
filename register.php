@@ -48,12 +48,12 @@ if (input::exists()) {
                 ));
                 //echo "here.....";
                 $id = substr($code, 0, 5);
-                Session::flash('home', 'Congratulations You Have Been Registered ...>>>>>>>| Remember to Verify Email in Order To Sign In |<<<<<<<<<<');
+                Session::flash('home', 'welcome to GAMAGRU');
                
                 $code = $user->login(input::get('confirmed'));
                 $to = input::get('email');
                 $subject = "Email Verification";
-                $message =  "<a href='localhost:8080/camagru/index.php?activation=$id'>click</a>";
+                $message =  "your verification code is : $id";
                 $headers = "From:noreply@localhost:8080 \r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
