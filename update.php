@@ -5,7 +5,7 @@ $user = new User();
 if (!$user->isLoggedIn()){
 	redirect::go_to('index.php');
 }
-
+echo '<a href="logout.php"><button >Logout</button></a>';
 if (input::exists()){
 	if(token::check(input::get('token'))){
 		$validate = new Validate();

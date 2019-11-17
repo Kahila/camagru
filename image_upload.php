@@ -11,7 +11,6 @@
 		redirect::go_to('index.php');
 	}
  ?>
-
  <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +22,7 @@
 	</style>
 	<title>Uploads</title>
 	<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+<a href='logout.php'><button >Logout</button></a>
 </head>
 <body>
 	<h1 style="text-align: center;">Upload Image</h1>

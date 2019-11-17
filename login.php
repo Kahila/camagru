@@ -47,11 +47,11 @@ require_once 'core/init.php';
 
 		}
 		body{
-			//background-color: grey;
+			background-color: grey;
 			background-image: url("webimages/1920x1080 canon background download.jpg");
 
 		}label{
-			//color: green;
+			/* //color: green; */
 		}
 		.log{
 			text-align: center;

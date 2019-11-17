@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1); 
 error_reporting(E_ALL);
 
+echo '<a href="logout.php"><button >Logout</button></a>';
 $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
 echo "<a href='galary.php'><button>GALARY</button></a>";
 require_once 'core/init.php';

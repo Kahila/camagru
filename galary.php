@@ -8,6 +8,7 @@ if (!$page_num){
     $page_num = 1;
 }
 
+echo '<a href="logout.php"><button >Logout</button></a>';
 $i = 0;
 $user = new User();
 $nextpg = $page_num+1;

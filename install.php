@@ -1,4 +1,6 @@
 <?php
+require_once 'core/init.php';
+
 	$servername = 'localhost';
 	$username = 'root';
 	$password = '123456';

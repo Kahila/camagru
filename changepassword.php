@@ -59,6 +59,7 @@ if (input::exists()){
 </head>
 <body>
 	<br><a href="index.php"><button style="width: 100px;">Home</button></a>
+	<a href='logout.php'><button >Logout</button></a>
 	<form action="" method="post" style="text-align: center;">
 		<h1>CHANGE PASSWORD</h1>
 		<div class="field">

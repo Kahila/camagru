@@ -65,7 +65,6 @@ if (input::exists()) {
                 else {
                   echo("Fail");
                 }
-                // header('location: index.php');
 
               redirect::go_to('verify.php');
             } catch (Exception $e) {
