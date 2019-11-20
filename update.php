@@ -2,6 +2,7 @@
 require_once 'core/init.php';
 
 $user = new User();
+$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
 if (!$user->isLoggedIn()){
 	redirect::go_to('index.php');
 }
@@ -56,8 +57,17 @@ if (input::exists()){
 		}
 	}
 }
+$id = $user->data()->id;
+if (isset($_POST['email_n'])){
+	$query = "UPDATE `users` SET `email_n` = 'on' WHERE `users`.`id` = '$id'";
+	$stmt = $conn->prepare($query);
+    $stmt->execute();
+}if(isset($_POST['email_n_off'])){
+	$query = "UPDATE `users` SET `email_n` = 'no' WHERE `users`.`id` = '$id'";
+	$stmt = $conn->prepare($query);
+    $stmt->execute();
+}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,10 +84,10 @@ if (input::exists()){
 			<label for="email">username</label><br>
 			<input style="width: 200px" type="email" name="email" value="<?php echo escape ($user->data()->email); ?>"><br>
 			<input type="submit" value="Update">
-			<input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+			<input type="hidden" name="token" value="<?php echo token::generate(); ?>"><br>
 		</div>
-
+			<br><button name='email_n' style="width:100px;">email allow</button><br>
+			<button name='email_n_off' style="width:100px;">email deny</button>
 	</form>
 </body>
 </html>
-

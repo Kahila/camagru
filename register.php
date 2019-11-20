@@ -44,7 +44,8 @@ if (input::exists()) {
                     'joined' => date('Y-m-d H:i:s'),
                     'grp' => 1,
                     'email' => input::get('email'),
-                    'confirmed' => substr($code, 0, 5)
+                    'confirmed' => substr($code, 0, 5),
+                    'email_n' => "no"
                 ));
                 //echo "here.....";
                 $id = substr($code, 0, 5);
