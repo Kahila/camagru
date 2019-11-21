@@ -61,11 +61,13 @@ $id = $user->data()->id;
 if (isset($_POST['email_n'])){
 	$query = "UPDATE `users` SET `email_n` = 'on' WHERE `users`.`id` = '$id'";
 	$stmt = $conn->prepare($query);
-    $stmt->execute();
+	$stmt->execute();
+	echo "email verifiation turned on";
 }if(isset($_POST['email_n_off'])){
 	$query = "UPDATE `users` SET `email_n` = 'no' WHERE `users`.`id` = '$id'";
 	$stmt = $conn->prepare($query);
-    $stmt->execute();
+	$stmt->execute();
+	echo "email verificaton turned off";
 }
 ?>
 <!DOCTYPE html>

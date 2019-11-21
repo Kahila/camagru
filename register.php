@@ -1,12 +1,23 @@
 <?php
 require_once 'core/init.php';
 
-if (input::exists()) {
+$val = false;
+$pattern = '/^.{8,}$/';
+if(preg_match($pattern, input::get('password'))){
+   $val = true;
+} else {
+   echo "Password is not strong enough";
+}
+
+if (!$val){
+    echo "password is not secure enough";
+}
+
+if (input::exists() && $val) {
     if (token::check(input::get('token'))) {
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
             'username' => array(
-                //'name' => 'username'
                 'required' => true,
                 'min' => 2,
                 'max' => 20,

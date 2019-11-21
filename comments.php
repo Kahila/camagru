@@ -20,8 +20,6 @@ $stmt = $conn->prepare($query);
 $stmt->execute();
 $res = $stmt->fetchAll();
 
-//print_r ($res);
-//$likes = 0;
 foreach($res as $like){
 	$likes = $like['likes'];
 }
@@ -31,8 +29,7 @@ if (isset($_POST['like'])){
 	$likes++;
 	$query = "UPDATE `images` SET `likes` = '$likes' WHERE `images`.`image_name` = '$filename'";
 	$stmt = $conn->prepare($query);
-    $stmt->execute();
-	//echo $likes;
+	$stmt->execute();
 }
 
 $user = new User();
@@ -43,8 +40,51 @@ if ($name){
 	 ));}
 	 echo "<h1 style='text-align:center;'>comments</h1><br>
 	 		<body style='background-image:url(uploads/$filename);background-size: cover;background-repeat: no-repeat;'>
-	 "
+	 ";
+
+		$query = "SELECT * FROM images WHERE image_name='$filename'";
+		$stmt = $conn->prepare($query);
+		$stmt->execute();
+		$res = $stmt->fetchAll();
+	foreach($res as $id){
+		$likes = $id['user_id'];
+	}
+		//echo "///|$likes|/////";
+		$query = "SELECT * FROM users WHERE id='$likes'";
+		$stmt = $conn->prepare($query);
+		$stmt->execute();
+		$res = $stmt->fetchAll();
+	foreach($res as $email){
+		$em = $email['email'];
+	}
+		$query = "SELECT * FROM users WHERE id='$likes'";
+		$stmt = $conn->prepare($query);
+		$stmt->execute();
+		$res = $stmt->fetchAll();
+	foreach($res as $email){
+		$send = $email['email_n'];
+	}
+	if ($send == 'on'){
+		 
+                //$code = $user->login(input::get('confirmed'));
+                $to = $em;
+                $subject = "Your Image has been liked";
+                $message =  "One of your images have been liked";
+                $headers = "From:noreply@localhost:8080 \r\n";
+                $headers .= "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+				//echo "sent";
+                if (mail($to,$subject,$message,$headers))
+                {
+                  echo ("success");
+                }
+                else {
+                  echo("Fail");
+                }
+	}
+		//echo ($send);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,10 +95,10 @@ if ($name){
 		<textarea type="text" name="new" placeholder="input new coment here" style="width: 200px; height: 200px;"></textarea><br>
 		<button type="submit" name="submit">Submit</button><br>
 		<button type="submit" name="like">like image</button>
-	</form>
-	
+	</form>	
 </body>
 </html>
+
 <?php
 	$query = "SELECT * FROM camagru.comments WHERE image_id='$filename'";
 	$stmt = $conn->prepare($query);
@@ -75,5 +115,4 @@ if ($name){
 		";
 	 }
 	echo "</form>";
-	
 ?>

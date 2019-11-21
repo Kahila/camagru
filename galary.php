@@ -32,7 +32,7 @@ if ($user->isLoggedIn()){
         $start = ($page_num - 1) * $amount ;
 		$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "123456");
 		// if ($conn) echo "Connection successful <br/>";
-            $query = "SELECT * FROM camagru.images LIMIT  $start , $amount";
+            $query = "SELECT * FROM camagru.images ORDER BY id DESC LIMIT  $start , $amount";
             $stmt = $conn->prepare($query);
             $stmt->execute();
             $count = $stmt->rowCount();
@@ -43,7 +43,7 @@ if ($user->isLoggedIn()){
             if ($count >= $amount)
                 echo "<a href='galary.php?pagenum=$nextpg'>NEXT |-><a/><br/>";
 
-            $res = array_reverse($stmt->fetchAll());
+            $res = $stmt->fetchAll();
             $i = 0;
             foreach ($res as $image) {
                 $ima = $image['image_name'];
